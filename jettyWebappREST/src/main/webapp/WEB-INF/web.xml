@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd">
+
+	<display-name>JettyWebAppHibernateREST</display-name>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>Hello</servlet-name>
+		<servlet-class>com.hw.servlets.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Hello</servlet-name>
+		<url-pattern>/hello/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>jettywebapphibernaterest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jettywebapphibernaterest</servlet-name>
+		<url-pattern>/jettywebapphibernaterest/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Database configuration file -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/hibernate.cfg.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+</web-app>
